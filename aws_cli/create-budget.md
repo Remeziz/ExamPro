@@ -1,5 +1,4 @@
 
-C
 
 aws budgets create-budget \
     --account-id 640168418688 \
