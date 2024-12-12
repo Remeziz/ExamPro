@@ -17,6 +17,8 @@ At the start of the bootcamp you need to create a new Github Repository from thi
 
 The `/journal` directory contains
 
+## test message
+
 - [ ] [Week 0](journal/week0.md)
 - [ ] [Week 1](journal/week1.md)
 - [ ] [Week 2](journal/week2.md)
