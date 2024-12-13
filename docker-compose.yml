@@ -18,9 +18,36 @@ services:
     volumes:
       - ./frontend-react-js:/frontend-react-js
 
+  db:
+    image: postgres:latest
+    restart: always 
+   # container_name: postgres
+    ports:
+      - "5432:5432" # Expose PostgreSQL on the default port
+    environment:
+      POSTGRES_USER: postgres # Username for the database
+      POSTGRES_PASSWORD: mypassword # Password for the database
+    volumes:
+      - db:/var/lib/postgresql/data # Persist data locally
+
+  dynamodb-local:
+   user: root
+   command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+   image: "amazon/dynamodb-local:latest"
+   container_name: dynamodb-local
+   ports:
+     - "8000:8000"
+   volumes:
+     - "./docker/dynamodb:/home/dynamodblocal/data"
+   working_dir: /home/dynamodblocal
+
 # the name flag is a hack to change the default prepend folder
 # name when outputting the image names
 networks: 
   internal-network:
     driver: bridge
     name: cruddur
+
+volumes:
+  db:
+    driver: local
