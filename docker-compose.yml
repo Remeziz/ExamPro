@@ -26,7 +26,7 @@ services:
       - "5432:5432" # Expose PostgreSQL on the default port
     environment:
       POSTGRES_USER: postgres # Username for the database
-      POSTGRES_PASSWORD: mypassword # Password for the database
+      POSTGRES_PASSWORD: password # Password for the database
     volumes:
       - db:/var/lib/postgresql/data # Persist data locally
 
